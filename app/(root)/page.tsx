@@ -1,3 +1,4 @@
+// Import necessary components and functions
 import AddDocumentBtn from '@/components/AddDocumentBtn';
 import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header'
@@ -11,14 +12,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
+//Define the home component as an async function
 const Home = async () => {
+  // Fetch the current logged-in user using Clerk
   const clerkUser = await currentUser();
+
+  // If no user is logged in, redirect to the sign-in page
   if(!clerkUser) redirect('/sign-in');
 
+  // Fetch the documents associated with the current user's email
   const roomDocuments = await getDocuments(clerkUser.emailAddresses[0].emailAddress);
 
   return (
     <main className="home-container">
+      {/* Render the header with notifications and user button */}
       <Header className="sticky left-0 top-0">
         <div className="flex items-center gap-2 lg:gap-4">
           <Notifications />
@@ -28,6 +35,7 @@ const Home = async () => {
         </div>
       </Header>
 
+       {/* Check if there are any documents */}
       {roomDocuments.data.length > 0 ? (
         <div className="document-list-container">
           <div className="document-list-title">
@@ -37,6 +45,8 @@ const Home = async () => {
               email={clerkUser.emailAddresses[0].emailAddress}
             />
           </div>
+
+           {/* Render the list of documents */}
           <ul className="document-ul">
             {roomDocuments.data.map(({ id, metadata, createdAt }: any) => (
               <li key={id} className="document-list-item">
@@ -60,6 +70,7 @@ const Home = async () => {
           </ul>
         </div>
       ): (
+        // Render a message and button if no documents are found
         <div className="document-list-empty">
           <Image 
             src="/assets/icons/doc.svg"
@@ -79,4 +90,5 @@ const Home = async () => {
   )
 }
 
+// Export the Home component as the default export of this module
 export default Home
