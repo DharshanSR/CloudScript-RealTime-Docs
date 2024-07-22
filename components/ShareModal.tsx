@@ -20,6 +20,28 @@ import UserTypeSelector from "./UserTypeSelector";
 import Collaborator from "./Collaborator";
 import { updateDocumentAccess } from "@/lib/actions/room.actions";
 
+/**
+ * A modal dialog component that allows the user to share a document with another user.
+ * It takes the following props:
+ * - roomId: The ID of the room that the document is in.
+ * - collaborators: An array of User objects that represent the collaborators associated with the document.
+ * - creatorId: The ID of the user that created the document.
+ * - currentUserType: The type of user that is currently logged in.
+ 
+ * When the user clicks the "Share" button, it opens the dialog.
+ * The dialog contains a form with an input field for the email address of the user to share the document with.
+ * It also contains a UserTypeSelector component to select the user type of the user to share the document with.
+ * The user type is stored in the state variable userType.
+ 
+ * When the user submits the form, it calls the shareDocumentHandler function, which sends a request to the server to update the document access.
+ * The request is done using the updateDocumentAccess function from the @/lib/actions/room.actions module.
+ * The function takes the roomId, email, userType, and updatedBy as parameters.
+ * The updatedBy parameter is the user object that is currently logged in.
+ 
+ * The component also renders a list of collaborators associated with the document.
+ * Each collaborator is rendered as a Collaborator component.
+ * The Collaborator component takes the collaborator object as a prop, as well as the roomId, creatorId, and user object.
+ */
 const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: ShareDocumentDialogProps) => {
   const user = useSelf();
 
@@ -29,13 +51,20 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
   const [email, setEmail] = useState('');
   const [userType, setUserType] = useState<UserType>('viewer');
 
+  /**
+   * A function that is called when the user submits the form.
+   * It sends a request to the server to update the document access.
+   * The request is done using the updateDocumentAccess function from the @/lib/actions/room.actions module.
+   * The function takes the roomId, email, userType, and updatedBy as parameters.
+   * The updatedBy parameter is the user object that is currently logged in.
+   */
   const shareDocumentHandler = async () => {
     setLoading(true);
 
-    await updateDocumentAccess({ 
-      roomId, 
-      email, 
-      userType: userType as UserType, 
+    await updateDocumentAccess({
+      roomId,
+      email,
+      userType: userType as UserType,
       updatedBy: user.info,
     });
 
@@ -69,14 +98,14 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
         </Label>
         <div className="flex items-center gap-3">
           <div className="flex flex-1 rounded-md bg-dark-400">
-            <Input 
+            <Input
               id="email"
               placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="share-input"
             />
-            <UserTypeSelector 
+            <UserTypeSelector
               userType={userType}
               setUserType={setUserType}
             />
@@ -89,7 +118,7 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
         <div className="my-2 space-y-2">
           <ul className="flex flex-col">
             {collaborators.map((collaborator) => (
-              <Collaborator 
+              <Collaborator
                 key={collaborator.id}
                 roomId={roomId}
                 creatorId={creatorId}
