@@ -1,1 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 64 64">
+  <!-- Define gradients and shadow -->
+  <defs>
+    <linearGradient id="documentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e88e5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="plusGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#43a047;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)" />
+    </filter>
+  </defs>
+  
+  <!-- Document Icon -->
+  <g transform="translate(5, 5) scale(0.9)">
+    <rect x="12" y="2" width="36" height="52" rx="4" ry="4" fill="url(#documentGradient)" filter="url(#shadow)" />
+    <path d="M24 2h16l12 12v36c0 2.2-1.8 4-4 4H16c-2.2 0-4-1.8-4-4V6c0-2.2 1.8-4 4-4h8z" fill="url(#documentGradient)" filter="url(#shadow)" />
+    <path d="M40 2v12h12" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" />
+  </g>
+  
+  <!-- Plus Icon -->
+  <g transform="translate(15, 15) scale(1.3)">
+    <circle cx="32" cy="32" r="8" fill="url(#plusGradient)" filter="url(#shadow)" />
+    <path d="M32 28v8M28 32h8" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>
