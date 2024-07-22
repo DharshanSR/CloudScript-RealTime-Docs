@@ -17,6 +17,17 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 
+/*
+This is a React functional component named FloatingToolbar. It uses the useState and useEffect hooks from React 
+to manage state and side effects respectively. The component uses the useLexicalComposerContext hook to get the 
+editor object from the context. It then sets up an effect that listens for updates on the editor object. When an 
+update occurs, it checks if the selection is a range selection and not collapsed. If so, it creates a DOM range 
+using the createDOMRange function and sets it as the current range. The component also uses the range state to 
+conditionally render the Toolbar component. If range is null, the component returns null, otherwise it renders 
+the Toolbar component with the range and a function to update the range as props. The Toolbar component is not 
+defined in this code snippet.
+*/
+
 export default function FloatingToolbar() {
   const [editor] = useLexicalComposerContext();
 
@@ -56,6 +67,11 @@ export default function FloatingToolbar() {
   );
 }
 
+/*
+This code defines a functional component named Toolbar in TypeScript with props range, onRangeChange, and container. 
+It uses various hooks like useLexicalComposerContext, useFloating, and useLayoutEffect to manage state and side effects. 
+The component creates a floating toolbar with a button that triggers a command when clicked.
+*/
 function Toolbar({
   range,
   onRangeChange,
@@ -84,6 +100,14 @@ function Toolbar({
       shift({ padding, limiter: limitShift() }),
       size({ padding }),
     ],
+
+    /*
+    This code snippet defines a function called whileElementsMounted that takes in a variable number of arguments. 
+    It returns the result of calling another function called autoUpdate with the same arguments, and an additional object 
+    { animationFrame: true }. The purpose of this code is to ensure that the autoUpdate function is called with the 
+    provided arguments and the animationFrame option set to true.
+    */
+
     whileElementsMounted: (...args) => {
       return autoUpdate(...args, {
         animationFrame: true,
@@ -157,6 +181,10 @@ function Toolbar({
  * SOFTWARE.
  */
 
+/*
+This function getDOMTextNode traverses the DOM tree starting from a given node until it finds a text node. 
+If it finds a text node, it returns that node; otherwise, it returns null.
+*/
 function getDOMTextNode(element: Node | null): Text | null {
   let node = element;
 
@@ -171,6 +199,12 @@ function getDOMTextNode(element: Node | null): Text | null {
   return null;
 }
 
+/*
+This code defines a function called getDOMIndexWithinParent that takes a ChildNode as an argument. 
+It first gets the parent node of the child node using the parentNode property. If the parent node is null, 
+it throws an error. Otherwise, it returns an array containing the parent node and the index of the child node 
+within its parent's child nodes. The index is obtained using the indexOf method on the childNodes property of the parent node.
+*/
 function getDOMIndexWithinParent(node: ChildNode): [ParentNode, number] {
   const parent = node.parentNode;
 
