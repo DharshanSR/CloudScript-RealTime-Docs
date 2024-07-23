@@ -4,6 +4,7 @@ import { getDocument } from "@/lib/actions/room.actions";
 import { getClerkUsers } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Define the Document component as an async function
 const Document = async ({ params: { id } }: SearchParamProps) => {
