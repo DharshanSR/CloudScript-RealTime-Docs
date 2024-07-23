@@ -19,7 +19,7 @@ const fontSans = FontSans({
 
 // Define metadata for the application
 export const metadata: Metadata = {
-  title: 'LiveDocs',
+  title: 'CloudScript-Docs',
   description: 'Your go-to collaborative editor',
 }
 

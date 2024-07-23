@@ -5,7 +5,7 @@ import { SignIn } from '@clerk/nextjs'
 const SignInPage = () => {
   return (
     // Return a main element with a class of "auth-page"
-    <main className="auth-page">
+    <main className="auth-page bg-[url('/assets/images/signin-singup.jpg')] bg-cover bg-center h-screen">
       {/* Render the SignIn component from @clerk/nextjs */}
       <SignIn />
     </main>

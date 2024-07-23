@@ -39,7 +39,7 @@ const Home = async () => {
       {roomDocuments.data.length > 0 ? (
         <div className="document-list-container">
           <div className="document-list-title">
-            <h3 className="text-28-semibold">All documents</h3>
+            <h3 className="text-28-semibold">Full Document Library</h3>
             <AddDocumentBtn 
               userId={clerkUser.id}
               email={clerkUser.emailAddresses[0].emailAddress}
@@ -53,7 +53,7 @@ const Home = async () => {
                 <Link href={`/documents/${id}`} className="flex flex-1 items-center gap-4">
                   <div className="hidden rounded-md bg-dark-500 p-2 sm:block">
                     <Image 
-                      src="/assets/icons/doc.svg"
+                      src="/assets/icons/document.svg"
                       alt="file"
                       width={40}
                       height={40}
@@ -61,7 +61,7 @@ const Home = async () => {
                   </div>
                   <div className="space-y-1">
                     <p className="line-clamp-1 text-lg">{metadata.title}</p>
-                    <p className="text-sm font-light text-blue-100">Created about {dateConverter(createdAt)}</p>
+                    <p className="text-sm font-light text-blue-100">Development Story About {dateConverter(createdAt)}</p>
                   </div>
                 </Link>
                 <DeleteModal roomId={id} />
