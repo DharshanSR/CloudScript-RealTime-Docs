@@ -17,15 +17,15 @@ const Loader = () => {
        * @property {number} height - The height of the image
        * @property {string} className - The class name for the image
        */}
-      <Image 
+      <Image
         src="/assets/icons/loader.svg"
         alt="loader"
-        width={32}
-        height={32}
+        width={40}
+        height={40}
         className="animate-spin"
       />
       {/* Display the text message "Loading..." */}
-      Loading...
+      Loading in progress, thanks for your patience!
     </div>
   )
 }

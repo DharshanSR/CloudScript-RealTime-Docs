@@ -74,27 +74,28 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <Button className="gradient-blue flex h-9 gap-1 px-4" disabled={currentUserType !== 'editor'}>
+        <Button className="gradient-blue flex h-10 gap-1 px-4" disabled={currentUserType !== 'editor'}>
           <Image
-            src="/assets/icons/share.svg"
+            src="/assets/icons/internet.svg"
             alt="share"
-            width={20}
-            height={20}
+            width={32}
+            height={32}
             className="min-w-4 md:size-5"
           />
           <p className="mr-1 hidden sm:block">
-            Share
+          Collaborate
           </p>
         </Button>
       </DialogTrigger>
+      
       <DialogContent className="shad-dialog">
         <DialogHeader>
-          <DialogTitle>Manage who can view this project</DialogTitle>
-          <DialogDescription>Select which users can view and edit this document</DialogDescription>
+          <DialogTitle>Personalize Access: Manage Viewer Permissions</DialogTitle>
+          <DialogDescription>Specify User Permissions for Viewing and Editing</DialogDescription>
         </DialogHeader>
 
-        <Label htmlFor="email" className="mt-6 text-blue-100">
-          Email address
+        <Label htmlFor="email" className="mt-6 text-white">
+          Enter The Email address
         </Label>
         <div className="flex items-center gap-3">
           <div className="flex flex-1 rounded-md bg-dark-400">
@@ -110,8 +111,13 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
               setUserType={setUserType}
             />
           </div>
-          <Button type="submit" onClick={shareDocumentHandler} className="gradient-blue flex h-full gap-1 px-5" disabled={loading}>
-            {loading ? 'Sending...' : 'Invite'}
+          <Button
+            type="submit"
+            onClick={shareDocumentHandler}
+            className={`bg-gradient-to-r from-blue-500 to-green-500 flex h-full gap-1 px-5 text-white font-medium transition-colors duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}`}
+            disabled={loading}
+          >
+            {loading ? 'Processing....' : 'Share Access'}
           </Button>
         </div>
 

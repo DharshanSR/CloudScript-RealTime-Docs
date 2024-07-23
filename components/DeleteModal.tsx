@@ -73,8 +73,8 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
           <Image
             src="/assets/icons/delete.svg"
             alt="delete"
-            width={20}
-            height={20}
+            width={32}
+            height={32}
             className="mt-1"
           />
         </Button>
@@ -84,18 +84,17 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
         <DialogHeader>
           {/* Delete modal icon */}
           <Image
-            src="/assets/icons/delete-modal.svg"
+            src="/assets/icons/delete-modal-01.svg"
             alt="delete"
-            width={48}
-            height={48}
+            width={60}
+            height={60}
             className="mb-4"
           />
           {/* Title of the modal */}
-          <DialogTitle>Delete document</DialogTitle>
+          <DialogTitle>Remove document</DialogTitle>
           {/* Description of the modal */}
           <DialogDescription>
-            Are you sure you want to delete this document? This action cannot be
-            undone.
+          Are you certain you want to remove this document? This action is irreversible and cannot be undone.
           </DialogDescription>
         </DialogHeader>
 

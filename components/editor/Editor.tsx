@@ -38,7 +38,7 @@ function Placeholder() {
   // This is used as a placeholder message for the editor when it is empty.
   return (
     <div className="editor-placeholder">
-      Enter some rich text...
+      Enter your richly formatted content here...
     </div>
   );
 }

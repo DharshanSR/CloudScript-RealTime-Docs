@@ -85,8 +85,8 @@ const Collaborator = ({ roomId, creatorId, collaborator, email, user }: Collabor
         <Image 
           src={collaborator.avatar}
           alt={collaborator.name}
-          width={36}
-          height={36}
+          width={40}
+          height={40}
           className="size-9 rounded-full"
         />
         <div>
@@ -103,7 +103,7 @@ const Collaborator = ({ roomId, creatorId, collaborator, email, user }: Collabor
       </div>
 
       {creatorId === collaborator.id ? (
-        <p className="text-sm text-blue-100">Owner</p>
+        <p className="text-sm font-bold text-red-600">Administrator</p>
       ): (
         <div className="flex items-center">
           <UserTypeSelector 

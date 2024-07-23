@@ -117,7 +117,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                   type="text"
                   value={documentTitle}
                   ref={inputRef}
-                  placeholder="Enter title"
+                  placeholder="Enter a Title for Your Document"
                   onChange={(e) => setDocumentTitle(e.target.value)}
                   onKeyDown={updateTitleHandler}
                   disable={!editing}
@@ -144,7 +144,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
                 <p className="view-only-tag">View only</p>
               )}
 
-              {loading && <p className="text-sm text-gray-400">saving...</p>}
+              {loading && <p className="text-sm text-gray-400">Just a Moment, We are Saving...</p>}
             </div>
             <div className="flex w-full flex-1 justify-end gap-2 sm:gap-3">
               <ActiveCollaborators />
